@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Portfolio Website</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="#" class="logo">
+        <img src="/images/messi.png" alt="Logo Messi" />
+      </a>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#stats">Stats</a>
+         <a href="#career-periods">Career</a> <!-- Tambahan -->
+      </nav>
+
+      <!-- HAMBURGER MENU -->
+      <div class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h1>Hi, It's <span>MESSI FANS PAGES</span></h1>
+        <h3>I'm a <span>FOOTBALL ANALYST</span></h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus labore
+          dolores esse. Odit similique doloribus tenetur doloremque, sunt
+          commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam
+          quaerat neque asperiores ea.
+        </p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <a href="#" class="btn">Hire Me</a>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <h2 class="section-title">My <span>Services</span></h2>
+      <div class="service-container">
+        <div class="service-box">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>Football Analysis</h3>
+          <p>In-depth tactical and statistical breakdowns of Messi’s matches and performances.</p>
+        </div>
+        <div class="service-box">
+          <i class="fa-solid fa-video"></i>
+          <h3>Video Editing</h3>
+          <p>Highlight reels, tactical analysis, and creative compilations for social media.</p>
+        </div>
+        <div class="service-box">
+          <i class="fa-solid fa-pen-nib"></i>
+          <h3>Content Writing</h3>
+          <p>Insightful football blogs, match reports, and tactical deep-dives for fans.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <div class="skills-container">
+        <div class="skill-bar">
+          <p>Football Analysis</p>
+          <div class="bar"><span style="width: 90%;"></span></div>
+        </div>
+        <div class="skill-bar">
+          <p>Video Editing</p>
+          <div class="bar"><span style="width: 80%;"></span></div>
+        </div>
+        <div class="skill-bar">
+          <p>Content Writing</p>
+          <div class="bar"><span style="width: 85%;"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Messi Fans Page | Designed with 80%CHATGPT</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      // Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navbar = document.querySelector(".navbar");
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+// tambaan
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <h2 class="section-title">Messi <span>Stats 2025</span></h2>
+  <div class="stats-container">
+    <div class="stat-box">
+      <h3><span class="counter" data-target="24">0</span></h3>
+      <p>Goals</p>
+    </div>
+    <div class="stat-box">
+      <h3><span class="counter" data-target="14">0</span></h3>
+      <p>Assists</p>
+    </div>
+    <div class="stat-box">
+      <h3><span class="counter" data-target="25">0</span></h3>
+      <p>Matches Played</p>
+    </div>
+    <div class="stat-box">
+      <h3><span class="counter" data-target="118">0</span></h3>
+      <p>Shots</p>
+    </div>
+    <!-- bisa ditambah lainnya, misalnya xG, yellow cards, dsb -->
+  </div>
+</section>
+    <script>
+      // Counter Animation
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        counter.innerText = '0';
+        const updateCounter = () => {
+          const target = +counter.getAttribute('data-target');
+          const current = +counter.innerText;
+          const increment = target / 200; // Adjust speed here
+          if (current < target) {
+            counter.innerText = `${Math.ceil(current + increment)}`;
+            setTimeout(updateCounter, 10);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      });
+    </script>
+
+    <!-- test -->
+
+    <script>
+  // NAVBAR ACTIVE ON CLICK + SCROLL
+  const navLinks = document.querySelectorAll('header nav a');
+  const sections = document.querySelectorAll('section');
+
+  // ketika klik link → set active
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ketika scroll → ubah active otomatis
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <h2 class="section-title">Messi <span>Career Experience</span></h2>
+  <div class="experience-container">
+    <div class="exp-box">
+      <h3>Newell’s Old Boys (Youth)</h3>
+      <p>1995 – 2000</p>
+    </div>
+    <div class="exp-box">
+      <h3>La Masia, Barcelona (Youth)</h3>
+      <p>2000 – 2004</p>
+    </div>
+    <div class="exp-box">
+      <h3>Barcelona (Senior)</h3>
+      <p>2004 – 2021</p>
+    </div>
+    <div class="exp-box">
+      <h3>Paris Saint-Germain (PSG)</h3>
+      <p>2021 – 2023</p>
+    </div>
+    <div class="exp-box">
+      <h3>Inter Miami CF</h3>
+      <p>2023 – Present</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER PERIODS -->
+<section class="career-periods" id="career-periods">
+  <h2 class="section-title">Messi <span>Career Periods</span></h2>
+  <div class="period-tabs">
+    <button class="tab-btn active" data-period="2001-2004">2001-2004</button>
+    <button class="tab-btn" data-period="2004-2012">2004-2012</button>
+    <button class="tab-btn" data-period="2012-2021">2012-2021</button>
+    <button class="tab-btn" data-period="2021-2023">2021-2023</button>
+    <button class="tab-btn" data-period="2023-now">2023-Now</button>
+  </div>
+
+  <div class="period-content">
+    <div class="period-box active" id="2001-2004">
+      <h3>2001-2004: Youth & Early Barça</h3>
+      <p>Joined Barcelona youth academy (La Masia), development years, goals for youth teams etc.</p>
+      <!-- Bisa ditambah stats youth kalau ada -->
+    </div>
+    <div class="period-box" id="2004-2012">
+      <h3>2004-2012: Rise to Legend</h3>
+      <ul>
+        <li>Senior debut at Barcelona (2004)</li>
+        <li>Many title wins, first Champions League, Ballon d’Or pertama (2009)</li>
+        <li>High goal scoring seasons, rekornya mulai kelihatan</li>
+      </ul>
+    </div>
+    <div class="period-box" id="2012-2021">
+      <h3>2012-2021: Peak Years & Legacy at Barça</h3>
+      <ul>
+        <li>Rekor gol per musim La Liga & Eropa</li>
+        <li>Captain di Barcelona</li>
+        <li>Menjadi pencetak gol terbanyak di klub, banyak trophy</li>
+      </ul>
+    </div>
+    <div class="period-box" id="2021-2023">
+      <h3>2021-2023: PSG Era</h3>
+      <ul>
+        <li>Pindah dari Barcelona ke PSG (Agustus 2021)</li>
+        <li>Pencapaian di Ligue 1, perubahan gaya bermain</li>
+      </ul>
+    </div>
+    <div class="period-box" id="2023-now">
+      <h3>2023-Sekarang: Inter Miami & Internasional</h3>
+      <ul>
+        <li>Bergabung dengan Inter Miami (Juli 2023)</li>
+        <li>Stats terbaru di MLS, gelar, performa internasional</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const periodBoxes = document.querySelectorAll(".period-box");
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Hapus aktif dari semua tombol & konten
+      tabBtns.forEach(b => b.classList.remove("active"));
+      periodBoxes.forEach(box => box.classList.remove("active"));
+
+      // Tambah aktif di tombol yang diklik
+      btn.classList.add("active");
+      const target = btn.getAttribute("data-period");
+      const content = document.getElementById(target);
+      if (content) {
+        content.classList.add("active");
+      }
+    });
+  });
+</script>
+<section class="ai-info">
+  <p>
+    Dengan bantuan teknologi AI, pembuatan website kini menjadi jauh lebih mudah, cepat, dan efisien. 
+    AI membantu mengoptimalkan desain, struktur, serta fitur interaktif sehingga siapa pun, bahkan tanpa 
+    pengalaman coding yang mendalam, dapat memiliki website yang menarik, responsif, dan fungsional. 
+    Inilah bukti nyata bahwa inovasi digital mempermudah kita dalam mewujudkan ide menjadi kenyataan.
+  </p>
+</section>
