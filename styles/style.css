@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background: url("images/KingLeo.jpg") no-repeat center center fixed;
+  background: url("../images/KingLeo.jpg") no-repeat center center fixed;
   background-size: cover;
   color: white;
   width: 100%;
@@ -522,5 +522,6 @@ nav a.active::after {
   max-width: 800px;
   margin: 0 auto;
 }
+
 
 
